@@ -1,0 +1,28 @@
+*{
+    margin : 0 ; 
+    padding : 0 ; 
+    box-sizing: border-box;
+}
+.sidenav {
+    height: 100%;
+    margin-top: 56px;
+    width: 158px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color : #d4f2e9;
+    padding-top: 20px ; 
+}
+
+
+ul{
+    list-style: none;
+}
+
+li h2{
+    text-align : center ; 
+}
+
+a{
+    text-decoration: none;
+}

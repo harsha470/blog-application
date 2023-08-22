@@ -1,0 +1,16 @@
+.main-content{
+    margin-left : 172px ; 
+    padding : 20px ; 
+}
+
+.card{
+    margin : 10px ; 
+    width : 18rem ;  
+    float : left ; 
+}
+
+.temp::after{
+    content : "" ; 
+    clear : both ; 
+    display : table ; 
+}
