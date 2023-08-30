@@ -1,0 +1,28 @@
+
+0. auth 
+    endpoints => 1. /auth/register 2. /auth/signin
+    app.use("/auth/register", register)
+    app.use("/auth/signin", signin)
+
+    app.use("/auth", authRouter)
+
+ 
+    authRouter => router.post("/register"), router.post("/signin") 
+
+1. users
+    endpoints=> /user/updateProfile, /user/view
+    app.use("/users", userRouter)
+
+2. blogs
+    endpoints => /blogs/add, /blog/edit, /blog/delete, 
+
+    app.use("/blogs", blogRouter)
+    post("/) get("/", verifyX, verifyY, verifyZ, funcA, funcB, controller.getAllBlogs) put("/:id") delete("/all") delete("/:id") 
+
+3. comments
+    endpoints =>  /comment/add, /comment/edit, /comment/delete, 
+
+   app.use("/comments", commentRouter)
+   app.use("/v2/comments", commentRouter2)
+       post("/) get("/") put("/:id") delete("/all") delete("/:id") 
+

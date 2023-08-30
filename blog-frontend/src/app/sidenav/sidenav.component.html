@@ -3,10 +3,13 @@
     <h3 >Dashboard</h3>
     <ul>
         <li><a href="">Home</a></li>
-        <li><a href="">myBlog</a></li>
-        <li><a href="">myProfile</a></li>
+        <li><a routerLink="myblog" *ngIf = "isLoggedIn">myBlog</a></li>
+        <li><a href="" *ngIf = "isLoggedIn">myProfile</a></li>
+        <li><a routerLink="addblog" *ngIf = "isLoggedIn">add a blog</a></li>
+
         <li><a href="">about</a></li>
         <li><a href="">setting</a></li>
+
     </ul>
 </div>
 

@@ -1,4 +1,14 @@
-<p>{{curblog.title}}</p>
-<p>{{curblog.desc}}</p>
-<p>{{curblog.author}}</p>
-<p>harsha</p>
+<div class="blog-details">
+    <h1 class="blog-title" id = "title">{{ curblog.title }}</h1>
+    <div >
+        <input type="text" [(ngModel)] = "curblog.title">
+    </div>
+    <div class="scroll">
+        <p class="blog-desc">{{ curblog.desc }}</p>
+    </div>
+    <p class="blog-author">Author: {{ curblog.authorId }}</p>
+    <div class="button-group" *ngIf = "isAuthorCurrentUser">
+        <button type="button" class="btn btn-outline-dark">Edit</button>
+        <button type="button" class="btn btn-outline-dark">Delete</button>
+    </div>
+</div>

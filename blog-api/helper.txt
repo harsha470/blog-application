@@ -1,0 +1,28 @@
+Users:
+
+user_id (Primary Key)
+username
+email
+password (hashed)
+registration_date
+profile_picture
+
+
+Posts:
+
+blog_id (Primary Key)
+title
+content
+publication_date
+author_id (Foreign Key referencing Users)
+category_id (Foreign Key referencing Categories)
+Comments:
+
+comment_id (Primary Key)
+blog_id (Foreign Key referencing Posts)
+user_id (Foreign Key referencing Users)
+comment_text
+comment_date
+
+
+i have created a jwt token and stored in local storage when a user gets logged in. now if user wants to add a blog,  

@@ -1,0 +1,21 @@
+
+<div class="form">
+    <h2 id="registration">Add Your Blog</h2>
+    <form (ngSubmit)="onSubmit(myForm)" #myForm = "ngForm">
+    <!-- <label for="fname">First Name</label> -->
+
+    <input type="text" id="text" name="title" placeholder="blog title" #title = "ngModel" ngModel required>
+    <!-- <input type="email" id="email" name="email" placeholder="email" #email = "ngModel" ngModel required email> -->
+    <div>
+      <small *ngIf = "title.touched && title.invalid  ">enter a valid title</small>
+    </div>
+    <textarea id="desc" name="desc" rows="5" cols="84" placeholder="blog description" #desc = "ngModel" ngModel required></textarea>   
+      
+    <br><br>
+    
+    <input type="submit" value = "Pubish" id = 'btn' [disabled]="!myForm.valid">
+    
+    
+    
+    I</form>
+    </div>

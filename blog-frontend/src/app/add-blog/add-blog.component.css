@@ -9,10 +9,13 @@
     box-sizing: border-box;
 
 }
+h2{
+    margin-bottom: 20px ; 
+}
 input{
-   margin : 5px  ; 
+   margin : 21px  ; 
    padding : 10px ; 
-   width : 250px ; 
+   width : 90% ; 
 
 }
 input[type=submit] {
@@ -33,8 +36,8 @@ input[type=submit]:hover {
     text-align: center;
     background-color: #d4f2e9; 
     padding: 20px;
-    width: 400px;
-    margin: 120px auto;
+    width: 750px;
+    margin: 100px 50px;
 }
 input.ng-invalid.ng-touched{
     border : red 1px solid ; 

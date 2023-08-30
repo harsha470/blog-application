@@ -1,0 +1,2 @@
+auth - login , register 
+user - add a blog , access his blogs, update profile

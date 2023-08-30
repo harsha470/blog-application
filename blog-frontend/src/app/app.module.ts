@@ -7,13 +7,16 @@ import { BlogComponent } from './blog/blog.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { HeaderComponent } from './header/header.component';
 import { Blog } from './models/blog';
-import { BlogService } from './blog.service';
+import { BlogService } from './services/blog.service';
 import { RouterModule,Router, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { AboutComponent } from './about/about.component';
+import { AddBlogComponent } from './add-blog/add-blog.component';
+
 
 
 @NgModule({
@@ -25,12 +28,14 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     LoginComponent,
     RegisterComponent,
     SidenavComponent,
+    AboutComponent,
+    AddBlogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [BlogService],
   bootstrap: [AppComponent]

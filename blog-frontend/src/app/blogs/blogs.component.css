@@ -1,16 +1,17 @@
-.main-content{
+/* .main-content{
     margin-left : 172px ; 
     padding : 20px ; 
+    flex-grow: 1;
 }
 
-.card{
-    margin : 10px ; 
-    width : 18rem ;  
-    float : left ; 
-}
 
 .temp::after{
     content : "" ; 
     clear : both ; 
     display : table ; 
+} */
+.card{
+    margin : 10px ; 
+    width : 18rem ;  
+    float : left ; 
 }

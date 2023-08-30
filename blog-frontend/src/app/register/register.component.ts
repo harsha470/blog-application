@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { BlogService } from '../blog.service';
+import { BlogService } from '../services/blog.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { NgFor } from '@angular/common';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { NgFor } from '@angular/common';
 })
 export class RegisterComponent {
   
-  constructor(private blogService : BlogService, private http: HttpClient ){
+  constructor(private blogService : BlogService, private http: HttpClient,private userService : UserService ){
 
   }
     
@@ -26,12 +27,7 @@ export class RegisterComponent {
         "password" : data.value.password,
       }
 
-      this.http.post("http://localhost:3000/register",bodyData,{responseType : 'text'})
-      .subscribe((resultData : any)=>
-      {
-        console.log(resultData) ; 
-        alert("registered Successfully") ; 
-      })
+      this.userService.register(bodyData) ; 
 
     
     }

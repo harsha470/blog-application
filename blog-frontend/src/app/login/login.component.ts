@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent {
 
 
-  constructor(private http : HttpClient){} 
+  constructor(private http : HttpClient, private userService : UserService, private router : Router){} 
 
   onSubmit(data : NgForm){
     let bodyData = {
@@ -20,12 +22,11 @@ export class LoginComponent {
       "password" : data.value.password
     }
 
-    this.http.post("http://localhost:3000/login",bodyData)
-    .subscribe((resultData : any)=>
-    {
-      console.log(resultData) ; 
-      alert("logged in Successfully") ; 
-    })
+     this.userService.login(bodyData)
+
+
+
+   
 
 
 
