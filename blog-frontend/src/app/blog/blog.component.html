@@ -1,14 +1,42 @@
 <div class="blog-details">
-    <h1 class="blog-title" id = "title">{{ curblog.title }}</h1>
-    <div >
-        <input type="text" [(ngModel)] = "curblog.title">
-    </div>
+  <div class="temp" *ngIf="!isEdit">
+    <h1 class="blog-title" id="title">{{ curblog.title }}</h1>
     <div class="scroll">
-        <p class="blog-desc">{{ curblog.desc }}</p>
+      <p class="blog-desc">{{ curblog.desc }}</p>
     </div>
-    <p class="blog-author">Author: {{ curblog.authorId }}</p>
-    <div class="button-group" *ngIf = "isAuthorCurrentUser">
-        <button type="button" class="btn btn-outline-dark">Edit</button>
-        <button type="button" class="btn btn-outline-dark">Delete</button>
+  </div>
+  <div class="temp2" *ngIf="isEdit">
+    <div class="blog-title">
+      <input type="text" [(ngModel)]="curblog.title" />
     </div>
+    <textarea
+      class="blog-desc"
+      rows="5"
+      cols="84"
+      [(ngModel)]="curblog.desc"
+    ></textarea>
+  </div>
+  <p class="blog-author">Author: {{ curblog.authorId }}</p>
+  <div class="button-group" *ngIf="isAuthorCurrentUser">
+    <button
+      type="button"
+      *ngIf="!isEdit"
+      class="btn btn-outline-dark"
+      (click)="onEdit()"
+    >
+      Edit
+    </button>
+    <button
+      type="button"
+      *ngIf="isEdit"
+      class="btn btn-outline-dark"
+      (click)="onUpdate()"
+    >
+      Update
+    </button>
+
+    <button type="button" class="btn btn-outline-dark" (click)="onDelete()">
+      Delete
+    </button>
+  </div>
 </div>

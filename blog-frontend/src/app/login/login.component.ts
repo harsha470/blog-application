@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
 
-  constructor(private http : HttpClient, private userService : UserService, private router : Router){} 
+  constructor(private http : HttpClient, private userService : UserService, private router : Router,private localStorageService : LocalStorageService){} 
 
   onSubmit(data : NgForm){
     let bodyData = {
@@ -22,7 +23,14 @@ export class LoginComponent {
       "password" : data.value.password
     }
 
-     this.userService.login(bodyData)
+     this.userService.login(bodyData).subscribe((result:any)=>{
+      localStorage.setItem("token", result.token) ; 
+      this.localStorageService.setLoginStatus(true) ; 
+      this.localStorageService.setUser(result.userId) ; 
+      // this.localStorageService.
+      this.router.navigate(['/home']) ; 
+
+    })
 
 
 

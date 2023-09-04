@@ -4,6 +4,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { NgFor } from '@angular/common';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ import { UserService } from '../services/user.service';
 })
 export class RegisterComponent {
   
-  constructor(private blogService : BlogService, private http: HttpClient,private userService : UserService ){
+  constructor(private blogService : BlogService, private http: HttpClient,private userService : UserService,private router : Router ){
 
   }
     
@@ -27,7 +28,12 @@ export class RegisterComponent {
         "password" : data.value.password,
       }
 
-      this.userService.register(bodyData) ; 
+      this.userService.register(bodyData).subscribe((result : any)=>
+      {
+        alert("registered Successfully") ; 
+        this.router.navigate(['/login']) ; 
+        
+      }); 
 
     
     }

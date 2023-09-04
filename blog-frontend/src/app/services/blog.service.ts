@@ -10,18 +10,6 @@ import { Observable } from 'rxjs';
 export class BlogService {
   
   constructor(private http : HttpClient,private router : Router){ }
-  blogs: Blog[] = [
-    {
-      _id : '1', title: "first blog", desc: "this is first blog", authorId : "harsha" 
-    },
-    {
-      _id : '2', title: "second blog", desc: "this is second blog", authorId : "vardhan" 
-    },{
-      _id : '3', title: "third blog", desc: "this is third blog", authorId : "harsha" 
-    },{
-      _id : '4', title: "fourth blog", desc: "this is fourth blog", authorId : "vardhan" 
-    }
-  ] ; 
 
 
 
@@ -43,6 +31,16 @@ export class BlogService {
    return  this.http.get<Blog>(`http://localhost:3000/blog/${blogId}`) ; 
   }
 
+  updateBlog(data : any, blogId : string) {
+    const token = localStorage.getItem('token') ; 
+    const headers = new HttpHeaders().set("Authorization", `bearer ${token}`) ; 
+    return this.http.put(`http://localhost:3000/blog/${blogId}`,data) ; 
+  }
+
+  deleteBlog(blogId : string)
+  {
+    return this.http.delete(`http://localhost:3000/blog/${blogId}`)  ; 
+  }
   
 
 

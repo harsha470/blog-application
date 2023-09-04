@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AboutComponent } from './about/about.component';
 import { AddBlogComponent } from './add-blog/add-blog.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
@@ -30,6 +31,7 @@ import { AddBlogComponent } from './add-blog/add-blog.component';
     SidenavComponent,
     AboutComponent,
     AddBlogComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

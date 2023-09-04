@@ -16,7 +16,6 @@ connectToMongo(url).then(()=>{
     console.log(err);
 })
 
-
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.json()) ; 
 app.use(cors()) ; 
@@ -29,11 +28,13 @@ const registerRouter = require('./routes/registerRouter');
 app.use('/register' , registerRouter);
 const blogRouter = require('./routes/blogRouter') ; 
 app.use('/blog', blogRouter) ; 
+const userRouter = require('./routes/userRouter'); 
+app.use('/user', userRouter) ; 
 
 
 app.listen(3000,()=>{
     console.log("server is listening") ; 
    
-})
+})  
 
 

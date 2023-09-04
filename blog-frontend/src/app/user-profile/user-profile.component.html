@@ -1,0 +1,20 @@
+<div class="form">
+    <h2 id="profile">Your Profile</h2>
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+      <input type="text" id="fname" name="firstName" placeholder="First Name" #firstName="ngModel" [(ngModel)]="curUser.firstName" [readonly]="!isEditMode" required>
+      <input type="text" id="lname" name="lastName" placeholder="Last Name" #lastName="ngModel" [(ngModel)]="curUser.lastName" [readonly]="!isEditMode" required>
+      <input type="email" id="email" name="email" placeholder="Email" #email="ngModel" [(ngModel)]="curUser.email" [readonly]="!isEditMode" required>
+      <input type="password" id="password" name="password" placeholder="Password" #password="ngModel" [(ngModel)]="curUser.password" [readonly]="!isEditMode" required>
+  
+      <br><br>
+  
+      <button type="submit" [hidden]="!isEditMode">Update</button>
+      <button type="button" (click)="toggleEditMode()" [hidden]="isEditMode">Edit</button>
+  
+      <!-- <div style="margin: 20px; text-align: center;">
+        <span>Back to </span>
+        <a routerLink="../login">Login</a>
+      </div> -->
+    </form>
+  </div>
+  
