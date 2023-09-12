@@ -17,6 +17,8 @@ export class UserService {
   logout(){
     this.localStorageService.setToken("") ; 
     this.localStorageService.setLoginStatus(false) ; 
+    this.localStorageService.setUser("") ; 
+
   }
 
   register(data : any){

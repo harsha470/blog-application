@@ -1,26 +1,23 @@
 
-<div class="form">
-<h2 id="registration">Register</h2>
-<form  #myForm = "ngForm" (ngSubmit)="onSubmit(myForm)" >
-<!-- <label for="fname">First Name</label> -->
-<input type="text" id="fname" name="firstName" placeholder="first name" #firstName = "ngModel" ngModel required>
-<!-- <label for="lname">Last Name</label> -->
-<input type="text" id="lname" name = "lastName" placeholder="last name" #lastName = "ngModel" ngModel required>
-<!-- <label for="email">Email</label> q -->
-<input type="email" id="email" name="email" placeholder="email" #email = "ngModel" ngModel required>
-<input type="text" id="password" name="password" placeholder="password" #password = "ngModel" ngModel required>
+  <div class="form">
+  <h2 id="registration">Register</h2>
+  <form  #myForm = "ngForm" (ngSubmit)="onSubmit(myForm)" >
+  <input type="text" id="fname" name="firstName" placeholder="first name" #firstName = "ngModel" ngModel required>
+  <input type="text" id="lname" name = "lastName" placeholder="last name" #lastName = "ngModel" ngModel required>
+  <input type="email" id="email" name="email" placeholder="email" #email = "ngModel" ngModel required>
+  <input type="text" id="password" name="password" placeholder="password" #password = "ngModel" ngModel required>
 
 
 
 
-<br><br>
+  <br><br>
 
-<input type="submit" value = "Register" id = 'btn'>
+  <input type="submit" value = "Register" id = 'btn'>
 
-<div style = "margin: 20px; text-align: center;">
-  <span>Already have an account </span>
-  <a routerLink="../login">sign in</a>
-</div>
+  <div style = "margin: 20px; text-align: center;">
+    <span>Already have an account </span>
+    <a routerLink="../login">sign in</a>
+  </div>
 
-I</form>
-</div>
+  </form>
+  </div>

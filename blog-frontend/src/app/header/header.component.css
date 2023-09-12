@@ -5,5 +5,14 @@
     position: sticky;
     width: 100%;
     top: 0;
-    z-index: 1000
+    z-index: 1000;
+}
+
+.navbar-brand{
+    font-weight: 600;
+}
+
+button {
+    background-color : #d4f2e9;
+    border-radius: 0.75rem;
 }

@@ -30,6 +30,8 @@ const blogRouter = require('./routes/blogRouter') ;
 app.use('/blog', blogRouter) ; 
 const userRouter = require('./routes/userRouter'); 
 app.use('/user', userRouter) ; 
+const commentRouter = require('./routes/commentRouter'); 
+app.use('/comment', commentRouter) ; 
 
 
 app.listen(3000,()=>{

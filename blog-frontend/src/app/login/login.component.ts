@@ -8,35 +8,32 @@ import { LocalStorageService } from '../services/local-storage.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-
-
 export class LoginComponent {
+  constructor(
+    private http: HttpClient,
+    private userService: UserService,
+    private router: Router,
+    private localStorageService: LocalStorageService
+  ) {}
 
-
-  constructor(private http : HttpClient, private userService : UserService, private router : Router,private localStorageService : LocalStorageService){} 
-
-  onSubmit(data : NgForm){
+  onSubmit(data: NgForm) {
     let bodyData = {
-      "email" : data.value.email,
-      "password" : data.value.password
+      email: data.value.email,
+      password: data.value.password,
+    };
+
+    if (data.valid) {
+      this.userService.login(bodyData).subscribe((result: any) => {
+        localStorage.setItem('token', result.token);
+        this.localStorageService.setLoginStatus(true);
+        this.localStorageService.setUser(result.userId);
+        this.router.navigate(['/home']);
+      });
     }
-
-     this.userService.login(bodyData).subscribe((result:any)=>{
-      localStorage.setItem("token", result.token) ; 
-      this.localStorageService.setLoginStatus(true) ; 
-      this.localStorageService.setUser(result.userId) ; 
-      // this.localStorageService.
-      this.router.navigate(['/home']) ; 
-
-    })
-
-
-
-   
-
-
-
+    else {
+      alert("Please enter all the required fields") ; 
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../services/local-storage.service';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { UserService } from '../services/user.service';
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
 
-  constructor(private localStorageService: LocalStorageService, private userService : UserService) {}
+  constructor(private localStorageService: LocalStorageService, private userService : UserService, private router : Router) {}
 
   ngOnInit() {
     this.localStorageService.loginStatus.subscribe({
@@ -19,14 +20,13 @@ export class HeaderComponent implements OnInit {
       },
       error: (error: any) => {
         console.log(error);
-      },
-      complete: () => {
-        // Handle completion
-      },
+      }
     });
   }
 
   onLogout(){
-    this.userService.logout() ; 
+    this.userService.logout() ;
+    this.router.navigate(['/home']) ; 
+
   }
 }

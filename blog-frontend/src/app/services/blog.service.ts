@@ -21,15 +21,25 @@ export class BlogService {
   }
 
 
-  getAllBlogs(isRequireUserBlogs: boolean = true){
+  getUserBlogs(userId : string){
     const token = localStorage.getItem('token') ; 
     const headers = new HttpHeaders().set("Authorization", `bearer ${token}`) ; 
-    return this.http.get(`http://localhost:3000/blog/?all=${isRequireUserBlogs}`,{headers})
+    return this.http.get(`http://localhost:3000/blog/?userId=${userId}`,{headers})
   }
+  // getAllBlogs(){
+  //    return this.http.get(`http://localhost:3000/blog`) ; 
+  // }
+
+  getAllBlogs(userId: string = ''){
+    return this.http.get(`http://localhost:3000/blog/?userId=${userId}`) ; 
+ }
+
+  // getAllBlogsTemp
 
   getASingleBlog(blogId : string) : Observable<Blog>{
    return  this.http.get<Blog>(`http://localhost:3000/blog/${blogId}`) ; 
   }
+
 
   updateBlog(data : any, blogId : string) {
     const token = localStorage.getItem('token') ; 

@@ -1,0 +1,25 @@
+
+<div class="comments">
+  <h4>Comments</h4>
+  <hr>
+
+  <div *ngIf="isLoggedIn" class="add-comment">
+    <textarea rows="1" [(ngModel)]="newCommentText" placeholder="Add a Comment..."></textarea>
+    <button type="button" (click)="addComment()">Add Comment</button>
+  </div>
+
+
+  <div *ngFor="let comment of comments" class="comment">
+    <div class="comment-user-date">
+      <span class="comment-user">{{ comment.userName }}</span>
+      <span class="comment-date">{{
+        comment.commentDate | date : 'short'
+      }}</span>
+    </div>
+    <div class="comment-text">
+      <div >{{ comment.commentText }}</div>
+    </div>
+  </div>
+
+  
+</div>

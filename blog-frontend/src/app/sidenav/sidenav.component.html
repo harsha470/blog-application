@@ -1,13 +1,11 @@
 <div class="sidenav">
-    <!-- Add your side navigation content here -->
-    <h3 >Dashboard</h3>
     <ul>
-        <li><a routerLink="">Home</a></li>
-        <li><a routerLink="myblog" *ngIf = "isLoggedIn">myBlog</a></li>
-        <li><a routerLink="myprofile" *ngIf = "isLoggedIn">myProfile</a></li>
-        <li><a routerLink="addblog" *ngIf = "isLoggedIn">add a blog</a></li>
+        <li ><a routerLink="">Home</a></li>
+        <li routerLink="myblog" *ngIf = "isLoggedIn"><a  >My Blogs</a></li>
+        <li routerLink="myprofile" *ngIf = "isLoggedIn"><a  >My Profile</a></li>
+        <li routerLink="addblog" *ngIf = "isLoggedIn"><a  >Add a Blog</a></li>
 
-        <li><a routerLink="about">about</a></li>
+        <li><a routerLink="about">About</a></li>
 
     </ul>
 </div>

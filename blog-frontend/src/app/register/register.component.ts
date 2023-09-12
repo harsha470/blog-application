@@ -28,13 +28,22 @@ export class RegisterComponent {
         "password" : data.value.password,
       }
 
-      this.userService.register(bodyData).subscribe((result : any)=>
+      if(data.valid)
+      {
+
+        this.userService.register(bodyData).subscribe((result : any)=>
       {
         alert("registered Successfully") ; 
         this.router.navigate(['/login']) ; 
         
-      }); 
+      });
+
+      }
+      else {
+        alert("Please enter all the required fields") ; 
+      }
 
     
     }
+    
 }
