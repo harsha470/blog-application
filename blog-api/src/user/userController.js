@@ -1,21 +1,35 @@
+const { validationResult } = require("express-validator");
 const userModel = require("./userModel");
 const jwt = require("jsonwebtoken");
+const bcrypt = require('bcryptjs');
+const {generateJwtToken,hashPassword} =  require('../../utils/helper') ; 
+
 const createUserControllerFn = async (req, res) => {
   try {
-    const body = req.body;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const {firstName,lastName,email,password} = req.body;
     const userModelData = new userModel();
-    userModelData.firstName = body.firstName;
-    userModelData.lastName = body.lastName;
-    userModelData.email = body.email;
-    userModelData.password = body.password;
+    userModelData.firstName = firstName;
+    userModelData.lastName = lastName;
+    userModelData.email = email;
 
-    await userModelData.save();
+    userModelData.password = hashPassword(password);
+    
+    
 
-    res.status(200).send({
-      status: true,
-      message: "user created successfully",
-    });
+   const user =  (await userModelData.save()).toObject();
+   delete user['password'];
+   delete user['__v'] ; 
+
+    const token = generateJwtToken(user) ;
+     
+    res.status(201).send({ user,token});
+
   } catch (error) {
+    console.log(error.statusCode) ; 
     res.status(500).json({ message: error.message });
   }
 };
@@ -40,8 +54,9 @@ const findUserControllerFn = async (req, res) => {
 
     const secretKey = "harshavardhan";
     const token = jwt.sign(payload, secretKey, { expiresIn: "100000" });
+    
 
-    res.send({ token: token, userId: payload.userId });
+    res.send({ status : true, token: token, userId: payload.userId });
   } catch (error) {
     console.log(error);
     res.status(500).send({
